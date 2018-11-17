@@ -30,7 +30,7 @@ public class FrontServlet extends HttpServlet {
 
     private Class getCommandClass(HttpServletRequest request) {
         Class result;
-        String commandClassName = request.getParameter("command") + "Command.class";
+        String commandClassName = "commands." + request.getParameter("command") + "Command";
         try{
             result = getClass().getClassLoader().loadClass(commandClassName);
         }catch (ClassNotFoundException e)
